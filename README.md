@@ -2,13 +2,19 @@
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.0.3-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![Tests](https://img.shields.io/badge/Tests-169%2F169%20Passing-10B981?style=for-the-badge&logo=pytest&logoColor=white)](tests/)
+[![Tests](https://img.shields.io/badge/Tests-173%2F173%20Passing-10B981?style=for-the-badge&logo=pytest&logoColor=white)](tests/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 [![Devanagari](https://img.shields.io/badge/Devanagari-HarfBuzz%20Shaped-00F2FE?style=for-the-badge)](core/export_pdf.py)
 
-> **BCA Semester 5 Project**  
-> **Course:** Cyber Security in Mobile, Cloud and IoT  
-> **Team:** Jaivin Vachhani (`2405101200043`), Yash Jadhav (`2405101200015`), Tirth Bariya (`2405101200050`)
+---
+
+## 👥 Project Team & Academic Credits
+
+- **Course:** BCA Sem 5 — Cyber Security in Mobile, Cloud and IoT
+- **Developers:**
+  - **Jaivin Vachhani** (Enrollment: `2405101200043`)
+  - **Yash Jadhav** (Enrollment: `2405101200015`)
+  - **Tirth Bariya** (Enrollment: `2405101200050`)
 
 ---
 
@@ -52,40 +58,40 @@ Unlike cloud-based antivirus scanners that send your personal messages and priva
 
 ```mermaid
 flowchart TD
-    User([User Input: Text / URL / QR Image]) --> Ingest[Input Ingestion Layer]
+    User["User Input (Text / URL / QR Image)"] --> Ingest["Input Ingestion Layer"]
     
     subgraph Frontend["Frontend Layer (HTML5, Modern CSS, ES6 JS)"]
-        Ingest --> UI[Scanner Interface]
-        UI --> Lang[i18n Translation Engine (en/hi)]
-        UI --> Cam[Webcam / Canvas Capture]
+        Ingest --> UI["Scanner Interface"]
+        UI --> Lang["i18n Translation Engine"]
+        UI --> Cam["Webcam / Canvas Capture"]
     end
 
     subgraph Backend["Flask REST API Server (Python 3.11)"]
-        UI -->|POST /api/scan/text| ScanText[Text Analysis Endpoint]
-        UI -->|POST /api/scan/image| ScanImg[Image Analysis Endpoint]
+        UI -->|POST /api/scan/text| ScanText["Text Analysis Endpoint"]
+        UI -->|POST /api/scan/image| ScanImg["Image Analysis Endpoint"]
         
-        ScanImg --> QR[OpenCV / pyzbar QR Reader]
-        QR --> Normalizer[Payload Normalizer]
+        ScanImg --> QR["OpenCV / pyzbar QR Reader"]
+        QR --> Normalizer["Payload Normalizer"]
         ScanText --> Normalizer
         
         subgraph Pipeline["Threat Analysis Pipeline"]
-            Normalizer --> UPI[UPI Protocol Parser]
-            Normalizer --> URL[URL & TLD Rule Engine]
-            Normalizer --> Brand[Levenshtein Brand Lookalike Engine]
-            Normalizer --> Msg[Multilingual Regex Matrix (EN/HI/Hinglish)]
+            Normalizer --> UPI["UPI Protocol Parser"]
+            Normalizer --> URL["URL & TLD Rule Engine"]
+            Normalizer --> Brand["Levenshtein Brand Lookalike Engine"]
+            Normalizer --> Msg["Multilingual Regex Matrix"]
             
-            UPI --> Score[Scoring & Verdict Engine]
+            UPI --> Score["Scoring & Verdict Engine"]
             URL --> Score
             Brand --> Score
             Msg --> Score
         end
 
-        Score --> Persist[SQLite History Logger (WAL Mode)]
-        Score --> PDF[PDF Exporter (uharfbuzz + Devanagari)]
+        Score --> Persist["SQLite History Logger"]
+        Score --> PDF["PDF Exporter (HarfBuzz + Devanagari)"]
     end
 
     Score -->|JSON Response| UI
-    Persist --> DB[(scamshield.db)]
+    Persist --> DB[("Embedded SQLite DB")]
     PDF -->|Download| User
 ```
 
@@ -209,7 +215,7 @@ pytest tests/ -v --tb=short
 
 Expected output:
 ```text
-============================= 170+ passed in ~5s =============================
+============================= 173 passed in ~5s =============================
 ```
 
 ---
@@ -238,13 +244,3 @@ Expected output:
 - **Privacy Preservation**: The SQLite history table records at most the first 60 characters of any scanned content (`preview_text[:60]`). Full message contents and contact details are never stored.
 - **SQL Injection Resistance**: All database queries are executed using parameterized SQL statements (`?` placeholders). No user string is ever interpolated directly into SQL syntax.
 - **Safe Link Handling**: ScamShield inspects the syntactic and morphological properties of URLs. It **never fetches or executes** the target webpage, eliminating drive-by download risks.
-
----
-
-## 👥 Project Team & Academic Credits
-
-- **Course:** BCA Sem 5 — Cyber Security in Mobile, Cloud and IoT
-- **Developers:**
-  - **Jaivin Vachhani** (Enrollment: `2405101200043`)
-  - **Yash Jadhav** (Enrollment: `2405101200015`)
-  - **Tirth Bariya** (Enrollment: `2405101200050`)

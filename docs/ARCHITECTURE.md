@@ -19,29 +19,29 @@ ScamShield is engineered following a clean, modular multi-tier architectural pat
 ```mermaid
 graph TD
     subgraph Client["Client Browser (No Node.js Required)"]
-        UI[Glassmorphism UI Engine]
-        I18N[i18n Localization Engine]
-        Cam[Webcam MediaDevices Stream]
+        UI["Glassmorphism UI Engine"]
+        I18N["i18n Localization Engine"]
+        Cam["Webcam MediaDevices Stream"]
     end
 
-    subgraph Server["Flask REST API Server (app.py)"]
-        Endpoints["REST API Endpoints (/api/scan, /api/history, /api/export)"]
+    subgraph Server["Flask REST API Server"]
+        Endpoints["REST API Endpoints"]
     end
 
-    subgraph Engine["Threat Detection Engine (core/)"]
-        Analyzer["Analysis Pipeline Coordinator (analyzer.py)"]
-        MsgRules["Message Heuristics (message_rules.py)"]
-        URLRules["URL Heuristics (url_rules.py)"]
-        Lookalike["Levenshtein Brand Classifier (lookalike.py)"]
-        UPIParser["UPI Protocol Parser (upi_parser.py)"]
-        QRReader["QR Vision Reader (qr_reader.py)"]
-        Scorer["Risk Scoring & Verdict Engine (scoring.py)"]
-        PDFGen["Devanagari PDF Generator (export_pdf.py)"]
+    subgraph Engine["Threat Detection Engine"]
+        Analyzer["Analysis Pipeline Coordinator"]
+        MsgRules["Message Heuristics"]
+        URLRules["URL Heuristics"]
+        Lookalike["Levenshtein Brand Classifier"]
+        UPIParser["UPI Protocol Parser"]
+        QRReader["QR Vision Reader"]
+        Scorer["Risk Scoring & Verdict Engine"]
+        PDFGen["Devanagari PDF Generator"]
     end
 
     subgraph Data["Data & Persistence"]
-        JSONs[("Threat Dictionaries & Brands (data/)")]
-        DB[("Embedded SQLite DB (scamshield.db)")]
+        JSONs[("Threat Dictionaries & Brands")]
+        DB[("Embedded SQLite DB")]
     end
 
     UI -->|HTTP / JSON / Multipart| Endpoints
