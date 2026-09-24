@@ -135,11 +135,12 @@ def history_list():
 
 @app.route("/api/history/<int:scan_id>", methods=["DELETE"])
 def history_delete(scan_id: int):
-    from core.history import delete_scan
-    deleted = delete_scan(scan_id)
-    if not deleted:
+    from core.history import get_scan, delete_scan
+    row = get_scan(scan_id)
+    if row is None:
         return jsonify({"error": "Scan not found."}), 404
-    return jsonify({"deleted": scan_id})
+    delete_scan(scan_id)
+    return jsonify({"deleted": scan_id, "preview": row.get("preview", "")})
 
 @app.route("/api/history", methods=["DELETE"])
 def history_delete_all():
