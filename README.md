@@ -1,4 +1,4 @@
-# 🛡️ ScamShield — Mobile, Cloud & IoT Cyber Security Suite
+# 🛡️ ScamShield - Mobile, Cloud & IoT Cyber Security Suite
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.0.3-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
@@ -10,7 +10,7 @@
 
 ## 👥 Project Team & Academic Credits
 
-- **Course:** BCA Sem 5 — Cyber Security in Mobile, Cloud and IoT
+- **Course:** B.Sc.-IT(Hons.) Sem 5 — Cyber Security in Mobile, Cloud and IoT
 - **Developers:**
   - **Jaivin Vachhani** (Enrollment: `2405101200043`)
   - **Yash Jadhav** (Enrollment: `2405101200015`)
