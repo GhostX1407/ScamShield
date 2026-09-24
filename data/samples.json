@@ -1,0 +1,92 @@
+[
+  {
+    "id": "scam_en_kyc",
+    "label": "SBI KYC Scam (English)",
+    "type": "message",
+    "text": "URGENT: Dear Customer, your SBI account will be blocked within 24 hours due to incomplete KYC. Click the link to update immediately: http://sbi-kyc-update.xyz/verify"
+  },
+  {
+    "id": "scam_en_prize",
+    "label": "Lottery Scam (English)",
+    "type": "message",
+    "text": "Congratulations! You have WON ₹50,000 in BSNL's lucky draw. Claim your cash prize now. Call 9876543210 or click: https://bit.ly/bsnl-prize-claim"
+  },
+  {
+    "id": "scam_en_otp",
+    "label": "OTP Phishing (English)",
+    "type": "message",
+    "text": "Your HDFC Bank account is temporarily suspended due to suspicious activity. Share your OTP and CVV immediately to restore access. Do NOT ignore this."
+  },
+  {
+    "id": "scam_en_refund",
+    "label": "Fake Refund (English)",
+    "type": "message",
+    "text": "Your electricity refund of ₹1,847 is approved. Click here within 2 hours to claim your cashback: http://electricity-refund.top/claim?id=93847"
+  },
+  {
+    "id": "scam_hi_kyc",
+    "label": "KYC स्कैम (हिन्दी)",
+    "type": "message",
+    "text": "आपका SBI बैंक खाता 24 घंटे में बंद हो जाएगा। तुरंत केवाईसी करें। आधार और पैन नंबर इस लिंक पर दर्ज करें: http://sbi-kyc-portal.xyz"
+  },
+  {
+    "id": "scam_hi_prize",
+    "label": "लॉटरी स्कैम (हिन्दी)",
+    "type": "message",
+    "text": "बधाई हो! आपने लकी ड्रा में ₹2,00,000 का नकद पुरस्कार जीता है। इनाम का दावा करने के लिए तुरंत यहाँ क्लिक करें।"
+  },
+  {
+    "id": "scam_hinglish_kyc",
+    "label": "KYC Scam (Hinglish)",
+    "type": "message",
+    "text": "Aapka Paytm account band ho jayega. Abhi kyc karo aur aadhaar number do. Nahi kiya toh account blok ho jayega. Turant is link pe jao."
+  },
+  {
+    "id": "scam_hinglish_prize",
+    "label": "Prize Scam (Hinglish)",
+    "type": "message",
+    "text": "Aap lucky draw mein jeete! ₹25,000 ka inaam aapka hai. Claim karne ke liye otp share karo aur paisa bhejo processing ke liye."
+  },
+  {
+    "id": "scam_url_shortener",
+    "label": "Shortened Link",
+    "type": "link",
+    "text": "https://bit.ly/free-iphone-claim-now"
+  },
+  {
+    "id": "scam_url_lookalike",
+    "label": "Fake SBI Website",
+    "type": "link",
+    "text": "https://sbi-kyc-secure-login.xyz/netbanking/verify"
+  },
+  {
+    "id": "scam_upi",
+    "label": "Scam UPI QR",
+    "type": "upi",
+    "text": "upi://pay?pa=scammer123@ybl&pn=SBI Customer Care&am=1&tn=cashback refund claim"
+  },
+  {
+    "id": "safe_en_casual",
+    "label": "Friendly Message (Safe)",
+    "type": "message",
+    "text": "Hi, are we still meeting for lunch at 1 pm today? Let me know if the plan changes."
+  },
+  {
+    "id": "safe_en_otp",
+    "label": "Real Bank OTP (Safe)",
+    "type": "message",
+    "text": "734821 is your OTP for SBI Net Banking login. Valid for 5 minutes. Do not share this OTP with anyone."
+  },
+  {
+    "id": "safe_hi_greeting",
+    "label": "हिन्दी संदेश (सुरक्षित)",
+    "type": "message",
+    "text": "नमस्ते! कल की मीटिंग 3 बजे की जगह 4 बजे होगी। कृपया सभी को बता दें।"
+  },
+  {
+    "id": "safe_url_amazon",
+    "label": "Real Amazon Link (Safe)",
+    "type": "link",
+    "text": "https://www.amazon.in/dp/B09NF4NT8N"
+  }
+]

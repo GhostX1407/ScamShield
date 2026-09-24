@@ -1,0 +1,146 @@
+{
+  "urgency": {
+    "title": "Fake Urgency",
+    "what": "The message tries to scare you into acting immediately — saying your account will be blocked in 24 hours, or you must respond right now.",
+    "why": "Scammers know that if you panic, you stop thinking clearly. By creating a fake deadline, they stop you from asking family or friends, and push you into making a mistake quickly.",
+    "do": "Stop. Breathe. A real bank or government office will NEVER block your account without sending you an official letter or registered notice first. Call the organisation directly on their official number — never the one in the message."
+  },
+  "money": {
+    "title": "Money Demand",
+    "what": "The message asks you to send money, pay a fee, or make a transfer — often calling it a 'registration fee', 'processing charge', or 'advance payment'.",
+    "why": "This is the goal of almost every scam. Scammers invent reasons for you to send a small amount first, then disappear with it. Legitimate services never ask for upfront cash to unlock winnings or benefits.",
+    "do": "Never send money to someone you have not verified in person. If it is a real prize or refund, you never need to pay to receive it. Report the message to the National Cyber Crime portal (cybercrime.gov.in)."
+  },
+  "kyc": {
+    "title": "Fake KYC Request",
+    "what": "The message claims your KYC is incomplete or expired, and threatens to block your bank account or mobile number unless you update your details immediately.",
+    "why": "Banks and telecom companies do occasionally ask for KYC updates — which is why scammers copy that language exactly. But the real process always happens through the bank's official app, branch, or verified website — never through a link in an SMS.",
+    "do": "Go to your bank's official website or app directly. Call the number on the back of your debit card. Never click a link in an SMS and never share your Aadhaar, PAN, OTP, or account number with anyone who contacts you first."
+  },
+  "prize": {
+    "title": "Fake Prize or Lottery",
+    "what": "The message says you have won a large amount of money, a phone, or a prize in a lucky draw — even though you never entered any contest.",
+    "why": "You cannot win a contest you never entered. This trick works because people want to believe they are lucky. Once you engage, scammers ask for a 'tax fee' or 'processing charge' before releasing your prize — which never arrives.",
+    "do": "Ignore and delete the message. You have won nothing. Real lotteries in India are rare, regulated, and you must have bought a ticket. If someone calls to 'confirm your prize', hang up."
+  },
+  "refund": {
+    "title": "Fake Refund or Cashback",
+    "what": "The message claims a refund or cashback has been approved for you, and asks you to click a link or scan a QR code to collect it.",
+    "why": "Scammers exploit the fact that many people have genuine pending refunds. By making you click a link or scan a payment QR, they actually drain money from your account rather than adding to it.",
+    "do": "Check your refund status through the official app or website only. Remember: to receive a refund or cashback, you should NEVER need to scan a QR code or enter your card or bank details."
+  },
+  "threats": {
+    "title": "Fake Legal Threat",
+    "what": "The message threatens police action, an FIR, a court notice, arrest, or an income tax case against you — unless you call a number or pay immediately.",
+    "why": "Fear is a powerful tool. Scammers impersonate police, CBI, income tax officers, or cybercrime departments. Real agencies never contact you via SMS or WhatsApp to threaten immediate arrest.",
+    "do": "Real legal notices are sent by post or through a court process. If you receive a suspicious legal threat, call your local police station directly or visit cybercrime.gov.in. Do not call any number in the message."
+  },
+  "personal_info": {
+    "title": "Personal Information Request",
+    "what": "The message asks you to share your OTP, PIN, CVV, card number, bank account number, Aadhaar, or password.",
+    "why": "These are the master keys to your money and identity. No legitimate bank, government office, or company will ever ask for your OTP or password — they already have your account details.",
+    "do": "NEVER share your OTP with anyone, for any reason — even if they claim to be from your bank. Your bank will never ask for it. Hang up immediately if someone asks."
+  },
+  "suspicious_link": {
+    "title": "Suspicious Link in Message",
+    "what": "The message contains a clickable link — often shortened or disguised — that it urges you to open.",
+    "why": "Scam links lead to fake websites that look identical to real banks or companies. Once there, they steal your login details or install malware on your device.",
+    "do": "Do not click any link in an unexpected message. If you need to visit a website, type the address directly into your browser. A real bank will never ask you to click an SMS link to log in."
+  },
+  "url_shortener": {
+    "title": "Shortened Link (Destination Hidden)",
+    "what": "The link uses a URL shortener (like bit.ly or tinyurl.com) which hides where it actually takes you.",
+    "why": "Scammers use link shorteners specifically to hide the real destination — which is usually a phishing website or malware page. You cannot tell where a shortened link goes before clicking it.",
+    "do": "Never click a shortened link from an unknown sender. If you must check, use a link-preview service to see the destination first. Assume all unexpected shortened links are dangerous."
+  },
+  "url_ip_host": {
+    "title": "IP Address Instead of Website Name",
+    "what": "Instead of a normal website name like 'sbi.co.in', this link uses a raw IP address like '192.168.1.1'. No real company does this.",
+    "why": "Scammers use IP addresses because they are cheap to set up, anonymous, and do not require a domain name registration. Legitimate companies always have a proper website address.",
+    "do": "Treat any link with an IP address as dangerous. Do not open it. Real banks and companies always use named domains."
+  },
+  "url_at_sign": {
+    "title": "@ Sign Trick in URL",
+    "what": "This link contains an '@' symbol — a browser trick where everything before the @ is ignored and you actually go to the address after it.",
+    "why": "A link like 'sbi.co.in@evil-scam.com' looks like it goes to SBI, but actually takes you to 'evil-scam.com'. This is a well-known phishing trick.",
+    "do": "Any link with '@' in the address bar is a red flag. Do not click it. Copy the part after the @ to see the real destination."
+  },
+  "url_punycode": {
+    "title": "Disguised International Characters",
+    "what": "This link uses 'punycode' — a technical way to register domain names with foreign-looking characters that appear identical to normal letters.",
+    "why": "Scammers register domains like 'pаypal.com' where the 'а' is a Cyrillic character, not a Latin 'a'. To your eyes, it looks identical to the real site.",
+    "do": "Look for 'xn--' in the link address — that is the giveaway. Do not visit these sites. Always type trusted website addresses manually."
+  },
+  "url_too_many_subs": {
+    "title": "Too Many Sub-domains",
+    "what": "The link has an unusually large number of dot-separated parts (sub-domains), like 'sbi.login.kyc.verify.evil.com'.",
+    "why": "Scammers add fake company names as sub-domains to make the URL look legitimate. The real domain is the last two parts — 'evil.com' in this example — which is what matters.",
+    "do": "Look at the last two parts of the domain name (before the path) to find the real website. If you do not recognise it, do not visit."
+  },
+  "url_very_long": {
+    "title": "Unusually Long Link",
+    "what": "This link is much longer than normal — often over 100 characters with many parameters and codes.",
+    "why": "Very long links are used to hide important clues in the middle or end, or to carry malicious parameters. Real website links are usually short and readable.",
+    "do": "Be extra careful with very long links from unknown senders. Check the domain name at the beginning of the link carefully."
+  },
+  "url_no_https": {
+    "title": "No Security Encryption (HTTP)",
+    "what": "This link uses 'http://' instead of 'https://'. The 's' stands for secure — without it, your data is unprotected.",
+    "why": "Any information you type on an insecure (http) page — like your password or OTP — can be intercepted by anyone on the same network. Real banking and payment websites always use https.",
+    "do": "Never enter any personal information on a page that starts with http:// instead of https://. Look for the padlock icon in your browser address bar."
+  },
+  "url_suspicious_tld": {
+    "title": "Suspicious Domain Extension",
+    "what": "This link ends with an unusual extension like .xyz, .top, .icu, .club, or .tk instead of the common .com, .in, .co.in, .gov.in.",
+    "why": "These domains are extremely cheap or free, which is why scammers prefer them. Legitimate Indian banks and companies use .co.in, .com, .gov.in, or .org.in.",
+    "do": "Be very cautious about any financial or government website that does not use a standard, trusted domain extension. When in doubt, search for the official website rather than clicking the link."
+  },
+  "url_many_hyphens": {
+    "title": "Too Many Hyphens in the Address",
+    "what": "The website address contains multiple hyphens — like 'sbi-kyc-login-secure-portal.in'. Real websites almost never need this.",
+    "why": "Scammers use hyphens to cram official-sounding words into a domain name to make it look trustworthy. Real organisations keep their web addresses simple.",
+    "do": "If a domain looks like it was built by joining official-sounding words with hyphens, it is probably fake. Check the real domain of the organisation you are looking for."
+  },
+  "url_suspicious_word": {
+    "title": "Suspicious Action Word in Link",
+    "what": "The link contains words like 'login', 'verify', 'kyc', 'secure', 'update', or 'confirm' — words that suggest you need to take urgent action on a website.",
+    "why": "Scam websites are designed to mimic the login or verification pages of real banks. They trick you into entering your credentials, which they then steal.",
+    "do": "Do not go to any website from an unexpected link, no matter how official the URL looks. Always access your bank by typing the address directly."
+  },
+  "lookalike_edit_distance": {
+    "title": "This Link Pretends to Be a Real Company",
+    "what": "The website address is almost identical to a well-known brand's real address — just one or two letters changed, swapped, or missing (e.g. 'paytrn.com' instead of 'paytm.com').",
+    "why": "People read quickly and miss small differences. Scammers register these near-identical addresses and build perfect copies of the real website to steal your password and money.",
+    "do": "Always check the exact spelling of any website address. Bookmark official sites so you never mistype them. If you arrived via a link, close the page and go directly."
+  },
+  "lookalike_brand_in_domain": {
+    "title": "Brand Name Hidden in a Fake Address",
+    "what": "This link contains a real company name (like 'SBI', 'Paytm', or 'HDFC') but it is part of a different, unofficial website address.",
+    "why": "Scammers put trusted brand names into fake domains — like 'sbi-kyc-update.in' — to make them look official at first glance. The 'sbi' part is just decoration; the real domain is something else entirely.",
+    "do": "The brand name at the START of a link does not mean anything. What matters is the registered domain — the part just before the final extension (.in, .com). Verify on the company's official site."
+  },
+  "lookalike_homoglyph": {
+    "title": "Letters Swapped to Look Identical",
+    "what": "This link uses characters that look exactly like real letters but are actually different — like using the number '0' instead of the letter 'o', or '1' instead of 'l'.",
+    "why": "At a glance, 'paypa1.com' looks identical to 'paypal.com'. Scammers register these look-alike domains to fool people who do not scrutinise every character.",
+    "do": "Zoom in and carefully read every character in a suspicious link. When in doubt, do not click — type the known address manually instead."
+  },
+  "upi_prefilled_amount": {
+    "title": "QR Code Has a Pre-Filled Payment Amount",
+    "what": "This QR code already has an amount set — so if you scan it with your UPI app, you will be prompted to pay that exact amount automatically.",
+    "why": "Scammers pre-fill amounts in QR codes so you pay without noticing. They might claim you are 'receiving' a refund or cashback, but scanning always SENDS money, never receives it.",
+    "do": "If a QR code has a pre-filled amount, do not scan it unless you are absolutely sure you intend to pay that person. To receive money, you should never need to scan anything."
+  },
+  "upi_scam_note": {
+    "title": "Payment Note Contains Scam Words",
+    "what": "The transaction note on this UPI QR contains words like 'refund', 'cashback', 'prize', or 'claim' — used to make a payment look like something coming to you.",
+    "why": "By labelling a payment QR as 'refund' or 'cashback', scammers trick you into thinking you are receiving money when you are actually sending it. The note is just text — it does not change the direction of money.",
+    "do": "Remember: any QR scan = money going OUT of your account. Ignore what the note says. Never scan a QR to receive money."
+  },
+  "upi_name_mismatch": {
+    "title": "Payee Name and Address Do Not Match",
+    "what": "The name shown in the QR (like 'SBI Customer Care') does not match the UPI payment address (like 'randomuser123@ybl').",
+    "why": "Anyone can set any display name in a UPI QR — it is not verified. Scammers use official-sounding names to hide the fact that money is going to a personal or fraudulent account.",
+    "do": "Check the actual UPI address (the @handle), not just the display name. If they look unrelated, or the address is a personal-looking one, do not pay."
+  }
+}
