@@ -1,4 +1,4 @@
-# 🛡️ ScamShield — Mobile, Cloud & IoT Cyber Security Suite
+# 🛡️ ScamShield - Mobile, Cloud & IoT Cyber Security Suite
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.0.3-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
