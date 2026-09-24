@@ -23,7 +23,7 @@ FLAG_WEIGHTS: dict[str, int] = {
     "urgency":        15,
     "money":          20,
     "kyc":            25,
-    "prize":          20,
+    "prize":          30,
     "refund":         18,
     "threats":        25,
     "personal_info":  22,
@@ -43,6 +43,10 @@ FLAG_WEIGHTS: dict[str, int] = {
     "lookalike_edit_distance": 30,
     "lookalike_brand_in_domain": 25,
     "lookalike_homoglyph":      25,
+    # UPI flags
+    "upi_prefilled_amount": 20,
+    "upi_scam_note":        25,
+    "upi_name_mismatch":    15,
 }
 
 # Categories (used for colour-coding in the frontend)
@@ -68,6 +72,9 @@ FLAG_CATEGORIES: dict[str, str] = {
     "lookalike_edit_distance":   "lookalike",
     "lookalike_brand_in_domain": "lookalike",
     "lookalike_homoglyph":       "lookalike",
+    "upi_prefilled_amount":  "upi",
+    "upi_scam_note":         "upi",
+    "upi_name_mismatch":     "upi",
 }
 
 
