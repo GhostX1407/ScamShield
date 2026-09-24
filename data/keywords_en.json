@@ -1,0 +1,105 @@
+{
+  "urgency": {
+    "flag_id": "urgency",
+    "weight": 15,
+    "keywords": [
+      "urgent", "immediately", "right now", "act now", "expires today",
+      "limited time", "last chance", "final notice", "deadline",
+      "account will be blocked", "account will be suspended",
+      "action required", "response required", "within 24 hours",
+      "within 48 hours", "do not ignore", "failure to comply",
+      "your account expires", "service will be terminated",
+      "immediate action", "respond immediately", "time sensitive"
+    ]
+  },
+  "money": {
+    "flag_id": "money",
+    "weight": 20,
+    "keywords": [
+      "send money", "transfer money", "wire transfer", "payment required",
+      "pay now", "pay immediately", "unpaid invoice", "outstanding balance",
+      "amount due", "click to pay", "make payment", "pay ₹",
+      "send ₹", "transfer ₹", "charges apply", "processing fee",
+      "registration fee", "advance fee", "deposit required",
+      "click here to pay", "pay via upi", "pay via paytm",
+      "bank transfer", "neft", "imps", "demand draft"
+    ]
+  },
+  "kyc": {
+    "flag_id": "kyc",
+    "weight": 25,
+    "keywords": [
+      "kyc", "know your customer", "kyc update", "kyc verification",
+      "kyc pending", "kyc expired", "kyc not done", "complete kyc",
+      "submit kyc", "kyc required", "kyc incomplete",
+      "update your details", "verify your account", "verify your identity",
+      "account verification", "re-verify", "re-validate",
+      "submit aadhaar", "submit pan", "pan card required",
+      "aadhaar required", "bank account frozen", "account on hold",
+      "account blocked", "account suspended", "services blocked"
+    ]
+  },
+  "prize": {
+    "flag_id": "prize",
+    "weight": 20,
+    "keywords": [
+      "you have won", "you won", "congratulations you", "winner",
+      "selected as winner", "lucky draw", "lottery", "prize money",
+      "claim your prize", "claim reward", "free gift", "free iphone",
+      "free laptop", "gift card", "voucher worth", "won ₹",
+      "cash prize", "jackpot", "bumper prize", "grand prize",
+      "spin and win", "you are selected", "scratch and win",
+      "weekly lucky draw", "monthly draw", "prize waiting"
+    ]
+  },
+  "refund": {
+    "flag_id": "refund",
+    "weight": 18,
+    "keywords": [
+      "refund", "cashback", "get cashback", "earn cashback",
+      "refund pending", "your refund", "claim refund", "money back",
+      "reimbursement", "get ₹ back", "cashback offer",
+      "refund initiated", "refund approved", "process your refund",
+      "click to claim cashback", "special cashback", "bonus cashback",
+      "extra cashback", "instant cashback", "double cashback"
+    ]
+  },
+  "threats": {
+    "flag_id": "threats",
+    "weight": 25,
+    "keywords": [
+      "police case", "legal action", "fir will be filed", "arrested",
+      "warrant issued", "court notice", "cybercrime", "income tax notice",
+      "fraud detected", "suspicious activity", "your account is compromised",
+      "your account has been hacked", "unauthorized access",
+      "criminal complaint", "penalty", "fine imposed",
+      "do not share with anyone", "keep this confidential",
+      "call immediately or face", "failure will result in"
+    ]
+  },
+  "personal_info": {
+    "flag_id": "personal_info",
+    "weight": 22,
+    "keywords": [
+      "share your otp", "enter your otp", "provide otp",
+      "share your pin", "share your password", "share your cvv",
+      "share your card number", "share your account number",
+      "share your aadhaar", "share your pan",
+      "enter your details", "fill in your details",
+      "update your mobile number", "update your email",
+      "click the link and verify", "login to verify",
+      "enter your credentials", "username and password"
+    ]
+  },
+  "suspicious_link": {
+    "flag_id": "suspicious_link",
+    "weight": 15,
+    "keywords": [
+      "click here", "click the link", "tap the link", "open this link",
+      "visit now", "go to link", "access here", "check here",
+      "verify here", "confirm here", "update here", "link below",
+      "link in bio", "follow the link", "http://", "bit.ly",
+      "tinyurl", "t.me", "shortened link"
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "urgency": {
+    "flag_id": "urgency",
+    "weight": 15,
+    "keywords": [
+      "turant", "abhi", "jaldi karo", "kal tak", "aaj hi",
+      "last chance", "final notice", "time khatam", "der mat karo",
+      "account band ho jayega", "account band hojayega",
+      "account blok ho jayega", "account blok hojayega",
+      "service band hogi", "24 ghante mein", "48 ghante mein",
+      "ignore mat karo", "jawab do abhi", "tatkal", "fauran karo",
+      "time nahi hai", "jaldi se karo", "seedha abhi",
+      "account close ho jayega", "band kar diya jayega"
+    ]
+  },
+  "money": {
+    "flag_id": "money",
+    "weight": 20,
+    "keywords": [
+      "paisa bhejo", "paise bhejo", "transfer karo", "abhi pay karo",
+      "rupaye bhejo", "fees do", "charge dena hoga", "advance dena hoga",
+      "registration fees", "upi se bhejo", "paytm karo",
+      "bank transfer karo", "account mein daalo", "amount bhejo",
+      "immediately pay karo", "payment karo abhi",
+      "processing charge", "nominal fee", "small fee"
+    ]
+  },
+  "kyc": {
+    "flag_id": "kyc",
+    "weight": 25,
+    "keywords": [
+      "kyc karo", "kyc update karo", "kyc verify karo",
+      "kyc nahi hui", "kyc pending hai", "kyc expire ho gayi",
+      "account verify karo", "identity verify karo",
+      "aadhar do", "aadhaar do", "pan do", "pan card chahiye",
+      "details update karo", "account freeze ho jayega",
+      "account band ho jayega", "account blok", "account block",
+      "services band ho jayegi", "bank account band hoga",
+      "dobara verify karo", "re-verify karo"
+    ]
+  },
+  "prize": {
+    "flag_id": "prize",
+    "weight": 20,
+    "keywords": [
+      "aapne jeeta", "aap jeete", "badhai ho", "aap winner hain",
+      "lucky draw mein", "lottery", "inaam", "prize money",
+      "cash prize", "free gift", "free iphone", "free laptop",
+      "gift card", "voucher", "scratch karo aur jeeto",
+      "spin karo aur jeeto", "aap chunay gaye", "bumper prize",
+      "grand prize", "weekly draw", "prize claim karo",
+      "aap ka naam select hua", "winner selected"
+    ]
+  },
+  "refund": {
+    "flag_id": "refund",
+    "weight": 18,
+    "keywords": [
+      "refund milega", "cashback milega", "paisa wapas", "wapasi",
+      "refund approved hai", "refund shuru", "cashback claim karo",
+      "special cashback", "instant cashback", "double cashback",
+      "extra cashback", "refund ke liye click karo",
+      "cashback offer hai", "tumhara refund pending"
+    ]
+  },
+  "threats": {
+    "flag_id": "threats",
+    "weight": 25,
+    "keywords": [
+      "police case hoga", "kanooni karwai", "fir hogi", "girftari",
+      "warrant", "court notice", "cyber crime", "income tax notice",
+      "dhokha mila", "suspicious activity", "account hack ho gaya",
+      "unauthorized access", "criminal complaint", "jurrmaana",
+      "jurmana lagega", "kisi ko mat batana", "confidential rakho",
+      "turant call karo", "call nahi kiya toh", "nahi kiya toh action"
+    ]
+  },
+  "personal_info": {
+    "flag_id": "personal_info",
+    "weight": 22,
+    "keywords": [
+      "otp share karo", "otp batao", "otp daalo", "otp dena hoga",
+      "pin batao", "password do", "cvv do", "cvv batao",
+      "card number do", "account number do", "khata number do",
+      "aadhar number do", "aadhaar number batao",
+      "pan number do", "details bharo", "login karo",
+      "apna naam aur number do", "mobile number do"
+    ]
+  },
+  "suspicious_link": {
+    "flag_id": "suspicious_link",
+    "weight": 15,
+    "keywords": [
+      "yahan click karo", "link pe click karo", "link kholo",
+      "abhi dekho", "link pe jao", "yahan jao",
+      "yahan verify karo", "yahan update karo",
+      "neeche diye link pe", "link follow karo",
+      "is link pe jao", "website visit karo"
+    ]
+  }
+}
