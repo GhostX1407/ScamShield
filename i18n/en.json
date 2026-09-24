@@ -86,7 +86,7 @@
 
   "about_title": "About ScamShield",
   "about_subtitle": "A student project on Cyber Security — built to protect people from mobile scams.",
-  "about_subject": "Subject: Cyber Security in Mobile, Cloud and IoT (BCA Sem 5)",
+  "about_subject": "Subject: Cyber Security in Mobile, Cloud and IoT (B.Sc.-IT(Hons.) Sem 5)",
   "about_how_title": "How it works",
   "about_how_1": "You paste a message, link, or QR code.",
   "about_how_2": "ScamShield scans it instantly — on your device, nothing is sent anywhere.",
@@ -117,5 +117,5 @@
 
   "footer_tagline": "ScamShield — Stay safe, stay smart.",
   "footer_privacy": "Nothing you scan is ever sent to the internet.",
-  "footer_built": "Built for BCA Sem 5 — Cyber Security"
+  "footer_built": "Built for B.Sc.-IT(Hons.) Sem 5 — Cyber Security"
 }

@@ -2,7 +2,7 @@
 
 **Document Version:** 1.0  
 **Project:** ScamShield  
-**Academic Context:** BCA Semester 5 — Cyber Security in Mobile, Cloud and IoT  
+**Academic Context:** B.Sc.-IT(Hons.) Semester 5 — Cyber Security in Mobile, Cloud and IoT  
 **Authors:** Jaivin Vachhani (`2405101200043`), Yash Jadhav (`2405101200015`), Tirth Bariya (`2405101200050`)  
 **Status:** Approved & Complete  
 

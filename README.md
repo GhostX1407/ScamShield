@@ -10,7 +10,7 @@
 
 ## 👥 Project Team & Academic Credits
 
-- **Course:** BCA Sem 5 — Cyber Security in Mobile, Cloud and IoT
+- **Course:** B.Sc.-IT(Hons.) Sem 5 — Cyber Security in Mobile, Cloud and IoT
 - **Developers:**
   - **Jaivin Vachhani** (Enrollment: `2405101200043`)
   - **Yash Jadhav** (Enrollment: `2405101200015`)

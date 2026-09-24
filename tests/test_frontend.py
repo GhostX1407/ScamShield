@@ -65,7 +65,7 @@ def test_about_page_renders(client):
     assert "2405101200015" in html
     assert "Tirth Bariya" in html
     assert "2405101200050" in html
-    assert "BCA Sem 5" in html
+    assert "B.Sc.-IT(Hons.) Sem 5" in html
 
 
 def test_static_assets_served(client):
