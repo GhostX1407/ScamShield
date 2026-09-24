@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}ScamShield — About{% endblock %}
+{% block nav_about %}active{% endblock %}
+
+{% block main %}
+<!-- ── Page Header ───────────────────────────────────────────────────────── -->
+<div class="hero-section" style="margin-bottom: 2.5rem;">
+  <div class="hero-badge">
+    <span aria-hidden="true">🎓</span>
+    <span data-i18n="about_subject">Subject: Cyber Security in Mobile, Cloud and IoT (BCA Sem 5)</span>
+  </div>
+  <h1 class="hero-title" data-i18n="about_title">About ScamShield</h1>
+  <p class="hero-subtitle" data-i18n="about_subtitle">
+    A student project on Cyber Security — built to protect people from mobile scams.
+  </p>
+</div>
+
+<!-- ── How It Works ──────────────────────────────────────────────────────── -->
+<section style="margin-bottom: 3.5rem;">
+  <h2 class="card-section-title" data-i18n="about_how_title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">
+    How it works
+  </h2>
+  <div class="about-flow-grid">
+    <div class="flow-step-card">
+      <div class="flow-step-number">1</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-main);">Input</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;" data-i18n="about_how_1">
+        You paste a message, link, or QR code.
+      </p>
+    </div>
+
+    <div class="flow-step-card">
+      <div class="flow-step-number">2</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-main);">Analyze</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;" data-i18n="about_how_2">
+        ScamShield scans it instantly — on your device, nothing is sent anywhere.
+      </p>
+    </div>
+
+    <div class="flow-step-card">
+      <div class="flow-step-number">3</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-main);">Verdict</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;" data-i18n="about_how_3">
+        You get a plain-language verdict: Safe, Suspicious, or Dangerous.
+      </p>
+    </div>
+
+    <div class="flow-step-card">
+      <div class="flow-step-number">4</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-main);">Educate</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;" data-i18n="about_how_4">
+        Tap 'Learn Why' on any warning to understand exactly what the scammer was trying.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Privacy Guarantee ─────────────────────────────────────────────────── -->
+<section class="privacy-banner">
+  <span class="privacy-icon" aria-hidden="true">🔒</span>
+  <div>
+    <h3 style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem;" data-i18n="about_privacy_title">
+      Your privacy
+    </h3>
+    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.65;" data-i18n="about_privacy_body">
+      Everything runs on your computer. We never send your messages to any server, never open any link, and never store more than the first 60 characters of any scan.
+    </p>
+  </div>
+</section>
+
+<!-- ── Development Team ──────────────────────────────────────────────────── -->
+<section style="margin-bottom: 3.5rem;">
+  <h2 class="card-section-title" data-i18n="about_team_title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">
+    Team
+  </h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">JV</div>
+      <div class="team-meta">
+        <h4>Jaivin Vachhani</h4>
+        <p>Enrollment: 2405101200043</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar">YJ</div>
+      <div class="team-meta">
+        <h4>Yash Jadhav</h4>
+        <p>Enrollment: 2405101200015</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar">TB</div>
+      <div class="team-meta">
+        <h4>Tirth Bariya</h4>
+        <p>Enrollment: 2405101200050</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Tech Stack & Architecture ─────────────────────────────────────────── -->
+<section class="result-card">
+  <h2 class="card-section-title" style="font-size: 1.35rem;">
+    Technical Architecture
+  </h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+    <div>
+      <h4 style="color: var(--cyan-primary); font-size: 1.05rem; margin-bottom: 0.5rem;">🔍 Detection Pipeline</h4>
+      <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+        Combines deterministic regex threat matrices across 10 categories with Levenshtein-based brand lookalike detection and homoglyph resolution.
+      </p>
+    </div>
+    <div>
+      <h4 style="color: var(--cyan-primary); font-size: 1.05rem; margin-bottom: 0.5rem;">📱 QR & UPI Verification</h4>
+      <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+        Parses UPI string protocols, extracts beneficiary VPA and payment attributes, and warns against reverse-charge collection fraud.
+      </p>
+    </div>
+    <div>
+      <h4 style="color: var(--cyan-primary); font-size: 1.05rem; margin-bottom: 0.5rem;">🌐 Bilingual Devanagari PDF</h4>
+      <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+        Native text shaping using HarfBuzz and bundled Noto Sans Devanagari font enables flawless Hindi export without character clipping.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

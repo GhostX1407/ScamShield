@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}ScamShield — Stay Safe, Stay Smart{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}ScamShield detects SMS, WhatsApp and UPI scams instantly — offline, private, bilingual.{% endblock %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  {% block head %}{% endblock %}
+</head>
+<body class="bg-canvas text-light antialiased">
+
+<!-- Ambient Background Glows -->
+<div class="ambient-glow glow-cyan" aria-hidden="true"></div>
+<div class="ambient-glow glow-indigo" aria-hidden="true"></div>
+
+<!-- ── Navbar ─────────────────────────────────────────────────────────── -->
+<header class="navbar-wrapper">
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand" aria-label="ScamShield Home">
+        <span class="brand-shield" aria-hidden="true">
+          <svg class="shield-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4" stroke="#00f2fe" stroke-width="2.5"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">ScamShield</span>
+          <span class="brand-tag">CyberGuard</span>
+        </span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/"        class="nav-link {% block nav_scan %}{% endblock %}"    data-i18n="nav_scan">Scan</a></li>
+        <li><a href="/history" class="nav-link {% block nav_history %}{% endblock %}" data-i18n="nav_history">History</a></li>
+        <li><a href="/learn"   class="nav-link {% block nav_learn %}{% endblock %}"   data-i18n="nav_learn">Learn</a></li>
+        <li><a href="/about"   class="nav-link {% block nav_about %}{% endblock %}"   data-i18n="nav_about">About</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="lang-toggle-btn" id="langToggle" aria-label="Switch language">
+          <span class="lang-icon" aria-hidden="true">🌐</span>
+          <span id="langToggleText" data-i18n="lang_toggle">हिन्दी</span>
+        </button>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ── Main Content ────────────────────────────────────────────────────── -->
+<main id="main-content" class="main-container">
+  {% block main %}{% endblock %}
+</main>
+
+<!-- ── Toast Notifications ────────────────────────────────────────────── -->
+<div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- ── Footer ────────────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-brand">🛡️ ScamShield</span>
+      <span class="footer-dot">·</span>
+      <span class="footer-privacy" data-i18n="footer_privacy">Nothing you scan is ever sent to the internet.</span>
+    </div>
+    <div class="footer-right">
+      <span class="footer-badge" data-i18n="footer_built">Built for BCA Sem 5 — Cyber Security</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Global Scripts ────────────────────────────────────────────────── -->
+<script src="/static/js/i18n.js"></script>
+<script src="/static/js/main.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

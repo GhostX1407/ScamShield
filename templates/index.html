@@ -1,12 +1,242 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ScamShield</title>
-</head>
-<body>
-  <h1>ScamShield is running ✅</h1>
-  <p>Environment verified. Full frontend coming in Part 6.</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}ScamShield — Is this a scam?{% endblock %}
+{% block nav_scan %}active{% endblock %}
+
+{% block main %}
+<!-- ── Hero Section ──────────────────────────────────────────────────────── -->
+<section class="hero-section">
+  <div class="hero-badge">
+    <span aria-hidden="true">🛡️</span>
+    <span>Offline · Private · Instant Analysis</span>
+  </div>
+  <h1 class="hero-title" data-i18n="scan_hero_title">Is this a scam?</h1>
+  <p class="hero-subtitle" data-i18n="scan_hero_subtitle">Paste a message, link, or upload a QR code — we'll tell you if it's safe.</p>
+</section>
+
+<!-- ── Scanner Card ──────────────────────────────────────────────────────── -->
+<div class="scanner-card">
+  <!-- Tab navigation -->
+  <div class="tab-navigation" role="tablist">
+    <button type="button" class="tab-btn active" id="tabBtnMessage" data-tab="message" role="tab" aria-selected="true" aria-controls="panelMessage">
+      <span class="tab-icon" aria-hidden="true">💬</span>
+      <span data-i18n="scan_tab_message">Paste Message</span>
+    </button>
+    <button type="button" class="tab-btn" id="tabBtnLink" data-tab="link" role="tab" aria-selected="false" aria-controls="panelLink">
+      <span class="tab-icon" aria-hidden="true">🔗</span>
+      <span data-i18n="scan_tab_link">Paste Link</span>
+    </button>
+    <button type="button" class="tab-btn" id="tabBtnQR" data-tab="qr" role="tab" aria-selected="false" aria-controls="panelQR">
+      <span class="tab-icon" aria-hidden="true">📷</span>
+      <span data-i18n="scan_tab_qr">Upload QR</span>
+    </button>
+  </div>
+
+  <!-- Tab Panels -->
+  <div class="tab-panels">
+    <!-- Panel 1: Message -->
+    <div class="tab-panel active" id="panelMessage" role="tabpanel" aria-labelledby="tabBtnMessage">
+      <div class="input-group">
+        <textarea
+          id="messageInput"
+          class="textarea-field"
+          data-i18n-placeholder="scan_placeholder_message"
+          placeholder="Paste the suspicious SMS or WhatsApp message here…"
+          maxlength="10000"
+          rows="6"
+        ></textarea>
+        <div id="charCounter" class="char-counter">0 / 10,000</div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Link -->
+    <div class="tab-panel" id="panelLink" role="tabpanel" aria-labelledby="tabBtnLink">
+      <div class="input-group">
+        <input
+          type="url"
+          id="linkInput"
+          class="text-input"
+          data-i18n-placeholder="scan_placeholder_link"
+          placeholder="Paste the suspicious link here…"
+        />
+      </div>
+    </div>
+
+    <!-- Panel 3: QR Code -->
+    <div class="tab-panel" id="panelQR" role="tabpanel" aria-labelledby="tabBtnQR">
+      <div id="qrDropzone" class="qr-dropzone" tabindex="0" role="button" aria-label="Upload QR code image">
+        <div class="qr-dropzone-inner">
+          <span class="qr-upload-icon" aria-hidden="true">📸</span>
+          <p class="qr-drop-text" data-i18n="scan_drop_qr">Drag & drop a QR image here, or click to choose a file</p>
+          <p class="qr-drop-subtext" data-i18n="scan_drop_hint">Supports JPEG, PNG, WebP · Max 5 MB</p>
+        </div>
+        <input
+          type="file"
+          id="qrFileInput"
+          class="qr-file-input"
+          accept="image/jpeg,image/png,image/webp,image/gif,image/bmp"
+          aria-hidden="true"
+        />
+      </div>
+
+      <!-- Preview when file is selected -->
+      <div id="qrPreviewContainer" class="qr-preview-container">
+        <img id="qrPreviewImg" class="qr-preview-thumb" alt="Selected QR preview" />
+        <div class="qr-preview-meta">
+          <span id="qrFileName" class="qr-file-name">filename.png</span>
+          <span id="qrFileSize" class="qr-file-size">120 KB</span>
+          <button type="button" id="qrRemoveBtn" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">
+            ✕ Remove
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Camera Scanner controls -->
+      <div class="qr-camera-controls">
+        <button type="button" id="cameraToggleBtn" class="btn btn-secondary">
+          <span id="cameraToggleIcon" aria-hidden="true">📹</span>
+          <span id="cameraToggleText">Scan with Camera</span>
+        </button>
+      </div>
+
+      <div id="cameraPreviewWrapper" class="camera-preview-wrapper">
+        <video id="cameraVideo" class="camera-video" playsinline></video>
+        <div class="camera-reticle"></div>
+        <canvas id="cameraCanvas" style="display: none;"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions Bar -->
+  <div class="scanner-actions">
+    <button type="button" id="sampleBtn" class="btn btn-secondary">
+      <span aria-hidden="true">💡</span>
+      <span data-i18n="scan_btn_sample">Try a Sample</span>
+    </button>
+
+    <button type="button" id="checkBtn" class="btn btn-primary">
+      <span id="checkBtnSpinner" class="spinner" style="display: none;" aria-hidden="true"></span>
+      <span id="checkBtnText" data-i18n="scan_btn_check">Check Now</span>
+    </button>
+  </div>
+</div>
+
+<!-- ── Results Section ────────────────────────────────────────────────────── -->
+<section id="resultSection" class="result-section" aria-live="polite">
+  <!-- Verdict Banner -->
+  <div id="verdictBanner" class="verdict-banner verdict-safe">
+    <div class="verdict-left">
+      <div id="verdictIcon" class="verdict-icon-bubble" aria-hidden="true">🛡️</div>
+      <div class="verdict-content">
+        <span class="verdict-label" data-i18n="result_score_label">Risk Score</span>
+        <h2 id="verdictTitle" class="verdict-title" data-i18n="result_verdict_safe">Looks Safe</h2>
+      </div>
+    </div>
+
+    <!-- Radial Score Gauge -->
+    <div class="score-gauge-wrap">
+      <div class="score-counter-display">
+        <span id="scoreNumber" class="score-number">0</span>
+        <span class="score-max">/ 100</span>
+      </div>
+      <svg class="score-gauge-svg" viewBox="0 0 80 80">
+        <circle class="score-gauge-bg" cx="40" cy="40" r="35" />
+        <circle id="scoreGaugeFill" class="score-gauge-fill" cx="40" cy="40" r="35" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- UPI Payment Warning (only shown for UPI QR) -->
+  <div id="upiWarningCard" class="upi-warning-card">
+    <div class="upi-header">
+      <span style="font-size: 1.5rem;" aria-hidden="true">⚠️</span>
+      <h3 data-i18n="upi_warning_title">UPI Payment Warning</h3>
+    </div>
+    <div class="upi-details-grid">
+      <div class="upi-item">
+        <span class="upi-item-label" data-i18n="upi_payee">Paying to</span>
+        <span id="upiPayeeVal" class="upi-item-value">—</span>
+      </div>
+      <div class="upi-item">
+        <span class="upi-item-label" data-i18n="upi_name">Payee name</span>
+        <span id="upiNameVal" class="upi-item-value">—</span>
+      </div>
+      <div class="upi-item">
+        <span class="upi-item-label" data-i18n="upi_amount">Amount</span>
+        <span id="upiAmountVal" class="upi-item-value">—</span>
+      </div>
+      <div class="upi-item">
+        <span class="upi-item-label" data-i18n="upi_note">Note</span>
+        <span id="upiNoteVal" class="upi-item-value">—</span>
+      </div>
+    </div>
+    <div class="upi-send-alert">
+      <span style="font-size: 1.3rem; flex-shrink: 0;" aria-hidden="true">🚨</span>
+      <p data-i18n="upi_send_warning">
+        Scanning this QR will SEND money from your account. You NEVER need to scan a QR to RECEIVE money — that is always a scam.
+      </p>
+    </div>
+  </div>
+
+  <!-- Highlighted Text Box -->
+  <div id="highlightCard" class="result-card">
+    <h3 class="card-section-title" data-i18n="result_highlights_label">Suspicious words highlighted</h3>
+    <div id="highlightedTextBox" class="highlighted-box"></div>
+
+    <!-- Category Legend -->
+    <div class="legend-wrapper" id="legendWrapper">
+      <span class="legend-pill"><span class="legend-dot" style="background: var(--hl-urgency);"></span><span data-i18n="legend_urgency">Urgency</span></span>
+      <span class="legend-pill"><span class="legend-dot" style="background: var(--hl-money);"></span><span data-i18n="legend_money">Money demand</span></span>
+      <span class="legend-pill"><span class="legend-dot" style="background: var(--hl-kyc);"></span><span data-i18n="legend_kyc">KYC / account block</span></span>
+      <span class="legend-pill"><span class="legend-dot" style="background: var(--hl-prize);"></span><span data-i18n="legend_prize">Prize / lottery</span></span>
+      <span class="legend-pill"><span class="legend-dot" style="background: var(--hl-refund);"></span><span data-i18n="legend_refund">Refund / cashback</span></span>
+      <span class="legend-pill"><span class="legend-dot" style="background: var(--hl-threats);"></span><span data-i18n="legend_threats">Threat / legal</span></span>
+      <span class="legend-pill"><span class="legend-dot" style="background: var(--hl-personal);"></span><span data-i18n="legend_personal_info">Personal info request</span></span>
+      <span class="legend-pill"><span class="legend-dot" style="background: var(--hl-link);"></span><span data-i18n="legend_suspicious_link">Suspicious link</span></span>
+    </div>
+  </div>
+
+  <!-- Red Flags List -->
+  <div id="flagsCard" class="result-card">
+    <h3 class="card-section-title" data-i18n="result_flags_label">What we found</h3>
+    <div id="flagsGrid" class="flags-grid">
+      <!-- Injected dynamically -->
+    </div>
+  </div>
+
+  <!-- Links Found in Message (if any) -->
+  <div id="linksFoundCard" class="result-card" style="display: none;">
+    <h3 class="card-section-title" data-i18n="result_links_found">Links found inside message</h3>
+    <div id="linksFoundList" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+  </div>
+
+  <!-- Footer Actions -->
+  <div class="result-footer-actions">
+    <button type="button" id="downloadPdfBtn" class="btn btn-secondary">
+      <span aria-hidden="true">📄</span>
+      <span data-i18n="result_btn_pdf">Download Report (PDF)</span>
+    </button>
+    <button type="button" id="checkAnotherBtn" class="btn btn-primary">
+      <span aria-hidden="true">🔄</span>
+      <span data-i18n="result_btn_new">Check Another</span>
+    </button>
+  </div>
+</section>
+
+<!-- ── Sample Picker Modal ───────────────────────────────────────────────── -->
+<div id="sampleModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="sampleModalTitle">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="sampleModalTitle" class="modal-title">Try a Sample</h3>
+      <button type="button" class="modal-close" id="sampleModalCloseBtn" aria-label="Close dialog">✕</button>
+    </div>
+    <div class="modal-body" id="sampleModalList">
+      <!-- Injected from /api/samples -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/scanner.js"></script>
+{% endblock %}

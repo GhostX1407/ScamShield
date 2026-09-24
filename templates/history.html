@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}ScamShield — Scan History{% endblock %}
+{% block nav_history %}active{% endblock %}
+
+{% block main %}
+<!-- ── Page Header ───────────────────────────────────────────────────────── -->
+<div class="hero-section" style="margin-bottom: 2rem;">
+  <div class="hero-badge">
+    <span aria-hidden="true">📊</span>
+    <span>Local SQLite Database</span>
+  </div>
+  <h1 class="hero-title" data-i18n="history_title">Scan History</h1>
+</div>
+
+<!-- ── Statistics Dashboard ──────────────────────────────────────────────── -->
+<section class="stats-grid" id="statsGrid">
+  <div class="stat-card">
+    <div class="stat-icon-wrap" aria-hidden="true">🔢</div>
+    <div class="stat-info">
+      <span id="statTotal" class="stat-number">0</span>
+      <span class="stat-label" data-i18n="history_stats_total">Total scans</span>
+    </div>
+  </div>
+
+  <div class="stat-card stat-safe">
+    <div class="stat-icon-wrap" aria-hidden="true">🛡️</div>
+    <div class="stat-info">
+      <span id="statSafe" class="stat-number">0</span>
+      <span class="stat-label" data-i18n="history_stats_safe">Safe</span>
+    </div>
+  </div>
+
+  <div class="stat-card stat-suspicious">
+    <div class="stat-icon-wrap" aria-hidden="true">⚠️</div>
+    <div class="stat-info">
+      <span id="statSuspicious" class="stat-number">0</span>
+      <span class="stat-label" data-i18n="history_stats_suspicious">Suspicious</span>
+    </div>
+  </div>
+
+  <div class="stat-card stat-dangerous">
+    <div class="stat-icon-wrap" aria-hidden="true">🚨</div>
+    <div class="stat-info">
+      <span id="statDangerous" class="stat-number">0</span>
+      <span class="stat-label" data-i18n="history_stats_dangerous">Dangerous</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Filters & Controls Bar ────────────────────────────────────────────── -->
+<div class="history-filters">
+  <div class="filter-inputs-group">
+    <!-- Verdict Select -->
+    <select id="filterVerdict" class="filter-select" aria-label="Filter by verdict">
+      <option value="" data-i18n="history_filter_all">All Verdicts</option>
+      <option value="safe" data-i18n="history_filter_safe">Safe</option>
+      <option value="suspicious" data-i18n="history_filter_suspicious">Suspicious</option>
+      <option value="dangerous" data-i18n="history_filter_dangerous">Dangerous</option>
+    </select>
+
+    <!-- Type Select -->
+    <select id="filterType" class="filter-select" aria-label="Filter by type">
+      <option value="" data-i18n="history_filter_all">All Types</option>
+      <option value="message" data-i18n="type_message">Message</option>
+      <option value="link" data-i18n="type_link">Link</option>
+      <option value="qr" data-i18n="type_qr">QR Code</option>
+      <option value="upi" data-i18n="type_upi">UPI QR</option>
+    </select>
+
+    <!-- Date Picker -->
+    <input type="date" id="filterDate" class="filter-date" aria-label="Filter by date" />
+
+    <button type="button" id="applyFilterBtn" class="btn btn-secondary" style="padding: 0.55rem 1rem;">
+      <span data-i18n="history_filter_btn">Filter</span>
+    </button>
+    <button type="button" id="clearFilterBtn" class="btn btn-outline" style="padding: 0.55rem 1rem;">
+      <span data-i18n="history_filter_clear">Clear</span>
+    </button>
+  </div>
+
+  <button type="button" id="deleteAllBtn" class="btn btn-danger" style="padding: 0.55rem 1rem;">
+    <span aria-hidden="true">🗑️</span>
+    <span data-i18n="history_btn_delete_all">Delete All</span>
+  </button>
+</div>
+
+<!-- ── Scans Table ───────────────────────────────────────────────────────── -->
+<div class="table-responsive">
+  <table class="history-table" id="historyTable">
+    <thead>
+      <tr>
+        <th data-i18n="history_col_time">Time</th>
+        <th data-i18n="history_col_type">Type</th>
+        <th data-i18n="history_col_preview">Preview</th>
+        <th data-i18n="history_col_verdict">Verdict</th>
+        <th data-i18n="history_col_score">Score</th>
+        <th data-i18n="history_col_action">Action</th>
+      </tr>
+    </thead>
+    <tbody id="historyTableBody">
+      <!-- Injected from API -->
+    </tbody>
+  </table>
+</div>
+
+<!-- ── Empty State ───────────────────────────────────────────────────────── -->
+<div id="historyEmptyState" class="empty-flags-state" style="display: none; padding: 4rem 1rem;">
+  <span class="empty-flags-icon" aria-hidden="true">📂</span>
+  <p data-i18n="history_empty" style="font-size: 1.1rem; color: var(--text-muted); max-width: 450px;">
+    No scans yet. Go to the Scan page to check a message.
+  </p>
+  <a href="/" class="btn btn-primary" style="margin-top: 1rem;" data-i18n="nav_scan">
+    Scan Now
+  </a>
+</div>
+
+<!-- ── Delete All Modal Confirmation ─────────────────────────────────────── -->
+<div id="deleteAllModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="delModalTitle">
+  <div class="modal-box" style="max-width: 440px;">
+    <div class="modal-header">
+      <h3 id="delModalTitle" class="modal-title">Confirm Deletion</h3>
+      <button type="button" class="modal-close" id="delModalCancelCross">✕</button>
+    </div>
+    <div class="modal-body">
+      <p data-i18n="history_delete_all_confirm" style="color: var(--text-muted); line-height: 1.6;">
+        Delete your entire scan history? This cannot be undone.
+      </p>
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+        <button type="button" id="delModalCancelBtn" class="btn btn-secondary">Cancel</button>
+        <button type="button" id="delModalConfirmBtn" class="btn btn-danger">Delete All Scans</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/history.js"></script>
+{% endblock %}

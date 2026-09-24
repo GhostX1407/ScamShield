@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}ScamShield — Learn Why{% endblock %}
+{% block nav_learn %}active{% endblock %}
+
+{% block main %}
+<!-- ── Page Header ───────────────────────────────────────────────────────── -->
+<div class="hero-section" style="margin-bottom: 2rem;">
+  <div class="hero-badge">
+    <span aria-hidden="true">💡</span>
+    <span>Cyber Literacy Knowledge Base</span>
+  </div>
+  <h1 class="hero-title" data-i18n="learn_title">Learn Why</h1>
+  <p class="hero-subtitle" data-i18n="learn_subtitle">
+    Understand every warning we give — in plain language.
+  </p>
+</div>
+
+<!-- ── Search Topics ─────────────────────────────────────────────────────── -->
+<div class="learn-search-wrap">
+  <span class="learn-search-icon" aria-hidden="true">🔍</span>
+  <input
+    type="text"
+    id="learnSearchInput"
+    class="learn-search-input"
+    data-i18n-placeholder="learn_search"
+    placeholder="Search topics…"
+    aria-label="Search cybersecurity warning topics"
+  />
+</div>
+
+<!-- ── Educational Cards Grid ────────────────────────────────────────────── -->
+<div class="learn-grid" id="learnGrid">
+  <!-- Injected dynamically via /api/learn/<lang> -->
+</div>
+
+<!-- ── Empty Search Results State ────────────────────────────────────────── -->
+<div id="learnNoResults" class="empty-flags-state" style="display: none; padding: 4rem 1rem;">
+  <span class="empty-flags-icon" aria-hidden="true">🔎</span>
+  <p data-i18n="learn_no_results" style="font-size: 1.1rem; color: var(--text-muted);">
+    No matching topics found.
+  </p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/learn.js"></script>
+{% endblock %}
